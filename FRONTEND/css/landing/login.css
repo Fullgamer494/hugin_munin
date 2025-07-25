@@ -1,0 +1,193 @@
+:root {
+    --night: #0C0F0A;
+    --bg: #FBFBFB;
+    --btn-green: #A7D14D;
+    --main-green: #84BC0D;
+}
+
+.login-section{
+    width: 100vw;
+    height: 100vh;
+
+    padding: 0 clamp(8px, 10px, 10px);
+}
+
+.login-section-content{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.login-section__img{
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.login-section__img h1{
+    display: none;
+}
+
+.login-section__img img{
+    width: 100%;
+    height: 100%;
+
+    border-radius: clamp(8px, 10px, 10px);
+    object-fit: cover;
+}
+
+.login-section__form{
+    width: 90%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    background-color: var(--white);
+    border-radius: clamp(8px, 10px, 10px);
+
+    z-index: 2000;
+}
+
+.welcome-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+    width: 100%;
+}
+
+.welcome-content h2{
+    font-family: 'Montserrat';
+    font-size: 36px;
+}
+
+.welcome-content p{
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.welcome-content img{
+    width: 48px;
+    margin-bottom: 30px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    width: 100%;
+}
+
+.form label{
+    width: 90%;
+
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.form input{
+    width: 90%;
+    height: 40px;
+    margin-bottom: 40px;
+    padding: clamp(8px, 10px, 10px);
+
+    border-radius: clamp(8px, 10px, 10px);
+    border: var(--stroke) 1px solid;
+    
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.password-container{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 90%;
+    height: 40px;
+}
+
+.password-container input{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    border-radius: clamp(8px, 10px, 10px);
+}
+
+.password-container i{
+    position: absolute;
+    right: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    font-size: 20px;
+}
+
+.form button{
+    width: 90%;
+    height: 40px;
+    margin-top: 40px;
+
+    background-color: var(--main-green);
+    border: none;
+    border-radius: clamp(8px, 10px, 10px);
+
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+@media screen and (min-width: 1024px) {
+    .login-section__img{
+        position: unset;
+
+        flex: 1;
+    }
+
+    .login-section__img img{
+        border-radius: clamp(8px, 10px, 10px) 0 0 clamp(8px, 10px, 10px);
+    }
+
+    .login-section__form{
+        flex: 1;
+
+        height: 100%;
+
+        border: var(--stroke) 2px solid;
+        border-left: none;
+        border-radius: 0 clamp(8px, 10px, 10px) clamp(8px, 10px, 10px) 0;
+    }
+    
+    .welcome-content img{
+        width: 64px;
+        height: 64px;
+    }
+
+    .welcome-content h2{
+        font-size: 48px;
+    }
+
+    .welcome-content p{
+        font-size: 20px;
+    }
+}

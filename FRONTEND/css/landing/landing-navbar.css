@@ -1,0 +1,226 @@
+:root {
+    --night: #0C0F0A;
+    --bg: #FBFBFB;
+    --btn-green: #A7D14D;
+    --main-green: #84BC0D;
+    --white: #FFFFFF;
+    --stroke: #818181;
+
+    --p-size: 14px;
+    --nav-op-size: 14px;
+    --title-sec-size: 36px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+    color: var(--night);
+}
+
+body{
+    background-color: var(--bg);
+}
+
+header{
+    width: 100vw;
+    height: 14vh;
+    padding: clamp(8px, 10px, 10px);
+}
+
+.header-content{
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    background: var(--night);
+    border-radius: clamp(12px, 18px, 24px);
+}
+
+.menu-btn{
+    flex: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-btn button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+.menu-btn button i{
+    font-size: 32px;
+    color: var(--bg);
+}
+
+.logo{
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo a{
+    width: 100%;
+    height: 100%;
+}
+
+.logo a img{
+    width: 48px;
+    height: 48px;
+}
+
+.login-btn{
+    flex: 1;
+
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 80%;
+    height: 48px;
+
+    background-color: var(--btn-green);
+    border-radius: clamp(8px, 10px, 10px);
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: var(--nav-op-size);
+    color: var(--night);
+}
+
+.header-content{
+    position: relative;
+}
+
+.nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 200px;
+    height: 0;
+    
+    z-index: 5000;
+    opacity: 0;
+    transition: height 0.2s ease, opacity 0.4s ease;
+
+    background-color: var(--white);
+    border: var(--stroke) 1px solid;
+    border-top: none;
+    border-radius: 0 0 clamp(8px, 10px, 10px) clamp(8px, 10px, 10px);
+}
+
+.nav ul{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    width: 100%;
+    height: 100%;
+}
+
+.nav ul li{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    width: 100%;
+    height: calc(100% / 4);
+
+    border-bottom:var(--stroke) 1px solid;
+}
+
+.nav ul li:last-child{
+    border: none;
+}
+
+.nav ul li a{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+
+    font-family: 'Poppins';
+    font-size: var(--nav-op-size);
+}
+
+.header-content nav.active {
+    height: 250px; /* o el valor que necesites */
+    opacity: 1;
+}
+
+@media screen and (min-width: 1024px) {
+    :root{
+        --p-size: 20px;
+        --nav-op-size: 16px;
+        --title-sec-size: 48px;
+    }
+
+    .menu-btn{
+        display: none;
+    }
+    
+    .nav{
+        position: unset;
+
+        flex: 3;
+           
+        height: 100%;
+
+        background: none;
+        border: none;
+        opacity: 1;
+    }
+
+    .nav ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .nav ul li{
+        flex: 1;
+
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+        
+        border: none;
+    }
+
+    .nav ul li a{
+        color: var(--white);
+    }
+}

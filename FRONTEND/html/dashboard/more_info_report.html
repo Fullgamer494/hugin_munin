@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="../../css/dashboard/more_info_report.css">
+    <link rel="stylesheet" href="../../css/dashboard/dashboard-base.css">
+
+    <!--Favicon-->
+    <link rel="icon" href="../../src/logo.svg" type="image/x-icon">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!--JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <title>Registrar ejemplar - Hugin & Munin</title>
+</head>
+
+<body class="page-animals">
+    <hm-header></hm-header>
+
+    <hm-aside></hm-aside>
+
+    <main>
+        <div class="main-content">
+            <header class="main-header">
+                <div class="page-name">
+                    <nav class="breadcrumb-nav">
+                        <a href="registered_animals_table.html" class="animals">Animales</a>
+                        <span><i class="ti ti-chevron-right"></i></span>
+                        <a href="" id="backTo">Ejemplar <span id="NI_animal"></span></a>
+                        <span><i class="ti ti-chevron-right"></i></span>
+                        <a href="javascript:history.back()"ja>Historial de reportes</a>
+                        <span><i class="ti ti-chevron-right"></i></span>
+                        <a href="">Reporte <span id="asunto"></span></a>
+                    </nav>
+                    <h1>Ver reporte <span id="tipoReporte"></span></h1>
+                </div>
+                <div class="back-btn">
+                    <a href="javascript:history.back()">
+                        <i class="ti ti-arrow-left"></i>
+                        Regresar
+                    </a>
+                </div>
+            </header>
+            <div class="content-card">
+                <div class="reporte-actions">
+                    <button onclick="generarPDF()" id="descargarPDF"><span>Descargar PDF</span> <i class="ti ti-download"></i></button>
+                </div>
+                <div class="reporte-content" id="pdf">
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!--JS-->
+    <script src="../../js/api-base.js"></script>
+    <script src="../../js/auth-manager.js"></script>
+    <script src="../../js/web-components.js"></script>
+    <script src="../../js/interactions.js"></script>
+    <script src="../../js/more_info_report.js"></script>
+</body>
+
+</html>

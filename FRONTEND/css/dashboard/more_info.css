@@ -1,0 +1,217 @@
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+
+    border-radius: clamp(12px, 18px, 24px);
+}
+
+.main-header{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+}
+
+.page-name{
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.breadcrumb-nav{
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+.breadcrumb-nav a{
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 700;
+
+    color: var(--stroke);
+}
+
+.breadcrumb-nav a:last-child{
+    color: var(--green-font);
+}
+
+.breadcrumb-nav a span{
+    font-style: italic;
+    font-weight: 700 !important;
+
+    color: var(--green-font);
+}
+
+.page-name h1{
+    font-family: 'Montserrat';
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.page-name span i{
+    font-weight: 500;
+
+    color: var(--stroke);
+}
+
+.page-name span{
+    font-style: italic;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.back-btn{
+    display: flex;
+    justify-content: end;
+    align-items: start;
+
+    height: 100%;
+}
+
+.back-btn a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    height: 50px;
+    padding: 0 15px;
+
+    background-color: #E5E5E5;
+    border-radius: clamp(6px, 10px, 12px);
+
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.back-btn a i{
+    font-size: 20px;
+}
+
+.animal-details{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+
+    width: 100%;
+    height: 100%;
+    padding: 5px 0;
+}
+
+.detail-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    padding: 10px;
+
+    background-color: var(--white);
+    border: #F5F5F5 solid 2px;
+    border-radius: clamp(6px, 10px ,12px);
+    box-shadow: 2px 2px 8px 0 #0000004D;
+}
+
+.detail-card h3{
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 16px;
+
+    color: var(--green-font);
+}
+
+.detail-card:last-child{
+    grid-column: 1 / 3;
+}
+
+.detail-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.detail-card span i, .detail-card a i{
+    font-size: 20px;
+
+    color: #4F4F4F;
+}
+
+.detail-card span{
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    font-family: 'Poppins';
+    font-size: 14px;
+}
+
+.detail-card span:last-child{
+    font-style: italic;
+}
+
+.report-history-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100px;
+
+    background-color: #E5E5E5;
+    border-radius: clamp(6px, 10px, 12px);
+}
+
+@media screen and (min-width: 1024px) {
+    .animal-details{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .detail-card:last-child{
+        grid-column: 1/4;
+    }
+
+    .detail-row{
+        flex-direction: row;
+
+        padding: 0 40px;
+    }
+
+    .detail-row span{
+        justify-content: start;
+        gap: 40px;
+
+        font-weight: 500;
+    }
+    
+    .detail-card span:last-child{
+        font-weight: 400;
+    }
+}

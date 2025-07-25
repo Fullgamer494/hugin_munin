@@ -1,0 +1,560 @@
+:root{
+    --aside: #84BC0D;
+    --bg: #FBFBFB;
+    --header: #0C0F0A;
+    --stroke: #818181;
+    --green-font: #659400;
+    --nav-option-selected: #436300;
+    --green-btns: #A7D14D;
+
+    --night: #0C0F0A;
+    --main-green: #84BC0D;
+    --white: #FFFFFF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+    color: var(--night);
+}
+
+body{
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 12vh 76vh 12vh;
+    
+    background-color: var(--bg);
+}
+
+hm-header{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+hm-header header{
+    width: 100%;
+    height: 100%;
+
+    padding: clamp(8px, 10px, 10px);
+}
+
+.header-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0 20px;
+    
+    background-color: var(--header);
+    border-radius: clamp(12px, 18px, 24px);
+}
+
+.logo{
+    flex: 1;
+    
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.logo a{
+    width: 48px;
+    height: 48px;
+}
+
+.logo a img{
+    width: 100%;
+    height: 100%;
+}
+
+.user{
+    position: relative;
+
+    flex: 2;
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    padding: 5px 10px;
+
+    background: transparent;
+    border: none;
+    border-radius: clamp(6px, 10px ,12px);
+
+    cursor: pointer;
+}
+
+.profile-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.profile-data span{
+    font-family: 'Montserrat';
+    font-size: 14px;
+
+    color: var(--bg);
+}
+
+.profile-img{
+    width: 48px;
+    height: 48px;
+
+    border-radius: 48px;
+}
+
+.logout-profile{
+    position: absolute;
+    top: calc(100% + clamp(8px, 10px, 10px));
+
+    width: 50%;
+}
+
+.logout-profile button{
+    width: 100%;
+    padding: 10px 0;
+
+    background-color: var(--white);
+    border: var(--stroke) 1px solid;
+    border-top: none;
+    border-radius: 0 0 clamp(8px, 10px, 10px) clamp(8px, 10px, 10px);
+}
+
+.logout-profile button i{
+    font-size: 20px;
+}
+
+.logout-profile {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+
+.logout-profile.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+hm-aside{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+aside{
+    width: 100%;
+    height: 100%;
+
+    padding: clamp(8px, 10px, 10px);
+}
+
+.aside-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--aside);
+    border-radius: clamp(12px, 18px, 24px);
+}
+
+.nav-options{
+    position: relative;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.nav-options li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 80%;
+    padding: 0 20px;
+
+    border-radius: clamp(6px, 10px, 12px);
+
+    transition: 0.4s ease-in-out;
+}
+
+.nav-options li.active{
+    background-color: var(--nav-option-selected);
+}
+
+.nav-options li button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    background: transparent;
+    border: none;
+}
+
+.nav-options li button:hover{
+    cursor: pointer;
+}
+
+.nav-options li a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    height: 100%;
+}
+
+.nav-options li.active > a span,
+.nav-options li.active > a i{
+    color: var(--bg) !important;
+}
+
+.nav-options li.active > button span, 
+.nav-options li.active > button i{
+    color: var(--bg) !important;
+}
+
+.nav-options > li button i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 30px;
+
+    color: var(--night);
+}
+
+.nav-options > li a i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+
+    color: var(--night) !important;
+}
+
+
+.nav-options > li a span, 
+.nav-options > li button span{
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 14px;
+
+    color: var(--night) !important;
+}
+
+.subnav-options{
+    position: absolute;
+    left: calc(50% + 20px);
+    bottom: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    width: calc(50% - 20px);
+    height: 0;
+
+    background-color: var(--bg);
+    border: var(--stroke) solid 1px;
+    border-bottom: none;
+    border-radius: clamp(6px, 10px, 12px) clamp(6px, 10px, 12px) 0 0;
+
+    opacity: 0;
+    overflow: hidden;
+    z-index: 1000;
+
+    transition: height 0.4s ease, opacity 0.4s ease;
+}
+
+.subnav-options.active{
+    height: 200px;
+
+    opacity: 1;
+}
+
+.subnav-options li{
+    flex: 1;
+
+    width: 100%;
+    height: calc(200px / 4);
+}
+
+.subnav-options li a{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+}
+
+.subnav-options li a i{   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+
+    color: var(--night);
+}
+
+.subnav-options li a span{
+    font-family: 'Montserrat';
+    font-size: 14px;
+
+    color: var(--night);
+}
+
+.logout-btn{
+    display: none;
+}
+
+main{
+    grid-column: 1/2;
+    grid-row: 2/3;
+
+    padding: 0 clamp(8px, 10px, 10px);
+
+    overflow-y: auto;
+}
+
+.main-content{
+    padding-top: 10px;
+}
+
+
+@media screen and (min-width: 1024px) {
+    body{
+        display: grid;
+        grid-template-columns: clamp(11%, 10%, 11%) clamp(89%, 90%, 89%);
+        grid-template-rows: clamp(12vh, 14vh, 14vh) 88vh;
+        
+        background-color: var(--bg);
+    }
+
+    hm-header{
+        grid-column: 1/3;
+        grid-row: 1/2;
+    }
+
+    hm-header header{
+        padding-bottom: 0;
+    }
+
+    .header-content{
+        padding: 0 30px 0 38px;
+    }
+
+    .logout-profile{
+        display: none;
+    }
+
+    hm-aside{
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    main{
+        grid-column: 2/3;
+        grid-row: 2/3;
+
+        margin: clamp(6px, 10px, 12px);
+        margin-left: 0;
+        padding: 0;
+    }
+        
+    .main-content{
+        padding: 15px 30px 0 30px;
+    }
+
+    .aside-content{
+        position: relative;
+
+        flex-direction: column;
+        justify-content: space-between;
+
+        padding: 20px 0;
+    }
+    
+    .nav-options{
+        position: static;
+
+        flex: 8;
+
+        padding-top: 20px;
+
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-options li{
+        flex: 0;
+
+        width: 75%;
+    }
+
+    .nav-options li a, .nav-options li button{
+        width: 100%;
+        padding: 10px;
+    }
+
+    .subnav-btn{
+        position: relative;
+
+        width: 100% !important;
+    }
+
+    .subnav-btn.active{
+        width: 75% !important;
+    }
+
+    .nav-options > li button i, .nav-options > li a i{
+        flex: 1;
+
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .nav-options > li button span, .nav-options > li a span{
+        flex: 1;
+
+        display: flex;
+        justify-content: start;
+    }
+
+    .subnav-options{
+        position: absolute;
+        top: 0;
+        left: 100%;
+
+        width: 0;
+        height: 200px;
+        padding: 0;
+
+        border-left: 0;
+        border-bottom: var(--stroke) solid 1px;
+        border-radius: 0 clamp(6px, 10px, 12px) clamp(6px, 10px, 12px) 0;
+
+        transition: 0.4s ease-in-out;
+    }
+
+    .subnav-options li{
+        flex: 1;
+
+        width: 100%;
+
+        border-radius: 0;
+    }
+
+    .subnav-options li a{
+        display: flex;
+        gap: 20px;
+    }
+
+    .subnav-options li a i{
+        justify-content: end;
+    }
+
+    .subnav-options li a span{
+        flex: 2;
+    }
+
+    .subnav-options.active{
+        height: 200px;
+    }
+
+    .subnav-options.active_web{
+        width: 200px;
+    }
+
+    .logout-btn{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 25px;
+    }
+    
+    .logout-btn button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        width: 75%;
+        padding: 10px;
+
+        background-color: transparent;
+    }
+
+    .logout-btn button{
+        border: none;
+        border-radius: clamp(6px, 10px, 12px);
+
+        font-family: 'Poppins';
+        font-size: 14px;
+        font-weight: 300;
+
+        cursor: pointer;
+
+        transition: 0.4s ease;
+    }
+
+    .logout-btn button i{
+        font-size: 28px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    body{
+        display: grid;
+        grid-template-columns: clamp(9%, 8%, 9%) clamp(91%, 92%, 91%);
+        grid-template-rows: clamp(12vh, 14vh, 14vh) 88vh;
+        
+        background-color: var(--bg);
+    }
+}

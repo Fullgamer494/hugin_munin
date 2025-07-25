@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="../../css/landing/login.css">
+    <link rel="stylesheet" href="../../css/landing/landing-navbar.css">
+
+    <!--Favicon-->
+    <link rel="icon" href="../../src/logo.svg" type="image/x-icon">
+
+    <!--Fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>Hugin & Munin</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="menu-btn">
+                <button type="button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div class="logo">
+                <a href="index.html" class="logo"><img src="../../src/logo.svg" alt="hugin&munin"></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#what-is">Hugin & Munin</a></li>
+                    <li><a href="index.html#function">Función</a></li>
+                    <li><a href="index.html#our-team">Nuestro equipo</a></li>
+                </ul>
+            </nav>
+            <div class="login-btn">
+                <a href="login.html">Iniciar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="login-section">
+        <div class="login-section-content">
+            <div class="login-section__img">
+                <h1 class="title">
+                    <span>Hugin</span>
+                    <span>&</span>
+                    <span>Munin</span>
+                </h1>
+                <img src="../../src/login-img.webp" alt="">
+            </div>
+            <div class="login-section__form">
+                <div class="welcome-content">
+                    <img src="../../src/logo_b.svg" alt="">
+                    <h2 class="bin">¡BIENVENIDO!</h2>
+                    <p>Inicia sesión para continuar</p>
+                </div>
+                <form class="form">
+                    <label for="username" class="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+
+                    <label for="password" class="password">Contraseña:</label>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" required>
+                        <i class="ti ti-eye toggle-password" id="togglePassword"></i>
+                    </div>
+
+                    <button type="submit">Iniciar sesión</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../js/api-base.js"></script>
+    <script src="../../js/auth-manager.js"></script>
+    <script src="../../js/login.js"></script>
+
+    <script>
+        window.auth = new SimpleAuth();
+        window.dispatchEvent(new CustomEvent('auth-manager-ready'));
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.querySelector('.menu-btn button');
+            const nav = document.querySelector('nav');
+
+            menuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const togglePassword = document.getElementById("togglePassword");
+            const passwordInput = document.getElementById("password");
+
+            togglePassword.addEventListener("click", () => {
+                const isPassword = passwordInput.type === "password";
+                passwordInput.type = isPassword ? "text" : "password";
+                togglePassword.classList.toggle("ti-eye");
+                togglePassword.classList.toggle("ti-eye-off");
+            });
+        });
+    </script>
+</body>
+
+</html>

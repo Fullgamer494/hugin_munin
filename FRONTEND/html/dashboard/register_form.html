@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="../../css/dashboard/register_form.css">
+    <link rel="stylesheet" href="../../css/dashboard/dashboard-base.css">
+
+    <!--Favicon-->
+    <link rel="icon" href="../../src/logo.svg" type="image/x-icon">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <title>Registrar ejemplar - Hugin & Munin</title>
+</head>
+
+<body class="page-animals">
+    <hm-header></hm-header>
+
+    <hm-aside></hm-aside>
+
+    <main>
+        <div class="main-content">
+            <header class="main-header">
+                <div class="page-name">
+                    <nav class="breadcrumb-nav">
+                        <a href="registered_animals_table.html" class="animals">Animales</a>
+                        <span><i class="ti ti-chevron-right"></i></span>
+                        <a href="">Registrar ejemplar</a>
+                    </nav>
+                    <h1>Registrar ejemplar</h1>
+                </div>
+            </header>
+            
+            <form id="registerSpecimen" class="form">
+                <section class="form-section">
+                    <header class="form-section-header">
+                        <button type="button" class="toggle-btn" aria-expanded="true" data-target="identificacion">
+                            <span class="toggle-icon"><i class="ti ti-chevron-down toggle-icon"></i></span>
+                            <h2>Identificación</h2>
+                        </button>
+                    </header>
+                    <div class="form-section-body showed" id="identificacion">
+                        <div class="form-group">
+                            <label for="NI_animal">Número de inventario:</label>
+                            <input type="text" id="NI_animal" name="NI_animal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre_especimen">Nombre de espécimen:</label>
+                            <input type="text" id="nombre_especimen" name="nombre_especimen">
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha_ingreso">Fecha de ingreso:</label>
+                            <input type="date" id="fecha_ingreso" name="fecha_ingreso" required>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <header class="form-section-header">
+                        <button type="button" class="toggle-btn" aria-expanded="false" data-target="clasificacion_taxonomica">
+                            <span class="toggle-icon"><i class="ti ti-chevron-down toggle-icon"></i></span>
+                            <h2>Clasificación taxonómica</h2>
+                        </button>
+                    </header>
+                    <div class="form-section-body" id="clasificacion_taxonomica">
+                        <div class="form-group">
+                            <label for="genero">Género:</label>
+                            <input type="text" id="genero" name="genero" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="especie">Especie:</label>
+                            <input type="text" id="especie" name="especie" required>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="form-section">
+                    <header class="form-section-header">
+                        <button type="button" class="toggle-btn" aria-expanded="false" data-target="informacion_de_procedencia">
+                            <span class="toggle-icon"><i class="ti ti-chevron-down toggle-icon"></i></span>
+                            <h2>Información de procedencia</h2>
+                        </button>
+                    </header>
+                    <div class="form-section-body" id="informacion_de_procedencia">
+                        <div class="form-group">
+                            <label for="id_origen">Origen:</label>
+                            <select id="id_origen" name="id_origen" required>
+                                <option value="1">Donación</option>
+                                <option value="2">Rescate</option>
+                                <option value="3">Incautado</option>
+                                <option value="4">Abandono</option>
+                                <option value="5">Captura</option>
+                                <option value="6">Depositaria</option>
+                                <option value="7">Intercambio</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="procedencia">Procedencia:</label>
+                            <input type="text" id="procedencia" name="procedencia" required>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <header class="form-section-header">
+                        <button type="button" class="toggle-btn" aria-expanded="false" data-target="ubicacion_actual">
+                            <span class="toggle-icon"><i class="ti ti-chevron-down toggle-icon"></i></span>
+                            <h2>Ubicación actual</h2>
+                        </button>
+                    </header>
+                    <div class="form-section-body" id="ubicacion_actual">
+                        <div class="form-group">
+                            <label for="area_origen">Área origen:</label>
+                            <select id="area_origen" name="area_origen" required>
+                                <option value="Externo">Externo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="area_destino">Área destino:</label>
+                            <select id="area_destino" name="area_destino" required>
+                                <option value="Cuarentena">Cuarentena</option>
+                                <option value="Exhibición">Exhibición</option>
+                                <option value="Guardería">Guardería</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ubicacion_origen">Ubicación origen:</label>
+                            <input type="text" id="ubicacion_origen" name="ubicacion_origen" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ubicacion_destino">Ubicación destino:</label>
+                            <input type="text" id="ubicacion_destino" name="ubicacion_destino" required>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <header class="form-section-header">
+                        <button type="button" class="toggle-btn" aria-expanded="false" data-target="informacion_descriptiva">
+                            <span class="toggle-icon"><i class="ti ti-chevron-down toggle-icon"></i></span>
+                            <h2>Información descriptiva</h2>
+                        </button>
+                    </header>
+                    <div class="form-section-body" id="informacion_descriptiva">
+                        <div class="form-group form-notes">
+                            <label for="observaciones_ingreso">Observaciones de ingreso:</label>
+                            <textarea id="observaciones_ingreso" name="observaciones_ingreso" rows="4" placeholder="Describa características especiales del animal (color, marcas, comportamiento, etc.)"></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="form-actions">
+                <button type="submit" class="btn btn-submit" id="submitBtn">
+                    Agregar
+                </button>
+                <a href="javascript:history.back()" class="btn-reset">
+                    Cancelar
+                </a>
+
+            </div>
+            </form>
+        </div>
+    </main>
+
+    <!--JS-->
+    <script src="../../js/api-base.js"></script>
+    <script src="../../js/auth-manager.js"></script>
+    <script src="../../js/auth-helper.js"></script>
+    <script src="../../js/web-components.js"></script>
+    <script src="../../js/register_form.js"></script> 
+    <script src="../../js/interactions.js"></script>
+    <script src="../../js/form.js"></script>
+</body>
+
+</html>

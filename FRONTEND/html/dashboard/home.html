@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="../../css/dashboard/home.css">
+    <link rel="stylesheet" href="../../css/dashboard/dashboard-base.css">
+
+    <!--Favicon-->
+    <link rel="icon" href="../../src/logo.svg" type="image/x-icon">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <title>Inicio - Hugin & Munin</title>
+</head>
+
+<body class="page-home">
+    <hm-header></hm-header>
+    <hm-aside></hm-aside>
+
+    <main>
+        <div class="main-content">
+            <header class="main-header">
+                <div class="page-name">
+                    <nav class="breadcrumb-nav">
+                        <a href="">Inicio</a>
+                    </nav>
+                    <h1>Resumen rápido</h1>
+                </div>
+            </header>
+            <section class="main-body">
+                <section class="overview-section">
+                    <div class="section-header">
+                        <h2>Visión general</h2>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="data-metric">
+                                <h3 id="activeAnimalsMetric">60</h3>
+                                <i class="fa-solid fa-paw"></i>
+                            </div>
+                            <h3 class="title-metric">Animales activos</h3>
+                        </div>
+                        <div class="metric-card">
+                            <div class="data-metric">
+                                <h3 id="recentRecordsMetric">9</h3>
+                                <i class="fa-solid fa-calendar-week"></i>
+                            </div>
+                            <h3 class="title-metric">Registros recientes</h3>
+                        </div>
+                        <div class="metric-card">
+                            <div class="data-metric">
+                                <h3 id="animalsRemovedMetric">11</h3>
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <h3 class="title-metric">Bajas</h3>
+                        </div>
+                    </div>
+                </section>
+                <section class="charts-section">
+                    <div class="section-header">
+                        <h2>Registro reciente de especies</h2>
+                    </div>
+                    <canvas id="myChart" width="400" height="200"></canvas>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <!--JS-->
+    <script src="../../js/api-base.js"></script>
+    <script src="../../js/auth-manager.js"></script>
+    <script src="../../js/web-components.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/statistics.js"></script>
+    <script src="../../js/interactions.js"></script>
+</body>
+
+</html>

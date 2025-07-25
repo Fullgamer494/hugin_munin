@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="../../css/dashboard/report_history_table.css">
+    <link rel="stylesheet" href="../../css/dashboard/dashboard-base.css">
+
+    <!--Favicon-->
+    <link rel="icon" href="../../src/logo.svg" type="image/x-icon">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <title>Historial de reportes - Hugin & Munin</title>
+</head>
+
+<body class="page-animals">
+    <hm-header></hm-header>
+
+    <hm-aside></hm-aside>
+
+    <main>
+        <div class="main-content">
+            <header class="main-header">
+                <div class="page-name">
+                    <nav class="breadcrumb-nav">
+                        <a href="registered_animals_table.html" class="animals">Animales</a>
+                        <span><i class="ti ti-chevron-right"></i></span>
+                        <a href="javascript:history.back()">Ejemplar <span id="NI_animal"></span></a>
+                        <span><i class="ti ti-chevron-right"></i></span>
+                        <a href="">Historial de reportes</a>
+                    </nav>
+                    <h1>Historial de reportes</h1>
+                </div>
+                <div class="back-btn">
+                    <a href="javascript:history.back()">
+                        <i class="ti ti-arrow-left"></i>
+                        Regresar
+                    </a>
+                </div>
+            </header>
+
+            <section class="controls">
+                <div class="search-container">
+                    <label for="searchInput"><i class="ti ti-search"></i></label>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Buscar...">
+                </div>
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="sortSelect">Ordenar por</label>
+                        <select class="filter-select" id="sortSelect">
+                            <option value="asunto">Asunto</option>
+                            <option value="tipoReporte">Tipo de reporte</option>
+                            <option value="responsable">Responsable</option>
+                            <option value="fechaCreacion">Fecha de creación</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="main-body">
+                <div class="table-container">
+                    <table class="table" id="reportHistoryTable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" class="checkbox" id="selectAll">
+                                </th>
+                                <th>Asunto</th>
+                                <th>Tipo de reporte</th>
+                                <th>Responsable</th>
+                                <th>Fecha de creación</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportHistoryTableBody">
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <span id="paginationInfo">1-10 de 350 items</span>
+                        <select class="pagination-filter-select" id="itemsPerPage">
+                            <option value="10">10 por página</option>
+                            <option value="25">25 por página</option>
+                            <option value="50">50 por página</option>
+                            <option value="100">100 por página</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pagination-controls">
+                        <button class="page-btn" id="prevBtn" disabled><i class="ti ti-chevron-left"></i></button>
+                        <button class="page-btn active" data-page="1">1</button>
+                        <button class="page-btn" data-page="2">2</button>
+                        <button class="page-btn" data-page="3">3</button>
+                        <button class="page-btn" data-page="4">4</button>
+                        <button class="page-btn" data-page="5">5</button>
+                        <span>...</span>
+                        <button class="page-btn" data-page="16">16</button>
+                        <button class="page-btn" id="nextBtn"><i class="ti ti-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!--JS-->
+    <script src="../../js/api-base.js"></script>
+    <script src="../../js/auth-manager.js"></script>
+    <script>    
+       // NO crear una nueva instancia, solo crear un alias para compatibilidad
+        console.log('Configurando alias de autenticación...');
+        
+        // Esperar a que web-components.js cree window.auth
+        function setupAuthAlias() {
+            if (window.auth) {
+                window.authManager = window.auth;
+                console.log('Alias authManager creado desde window.auth');
+                return true;
+            }
+            return false;
+        }
+        
+        // Intentar inmediatamente
+        if (!setupAuthAlias()) {
+            // Si no existe aún, esperar a que DOMContentLoaded lo cree
+            document.addEventListener('DOMContentLoaded', () => {
+                setTimeout(() => {
+                    if (setupAuthAlias()) {
+                        console.log('authManager ahora disponible:', window.authManager);
+                    } else {
+                        console.error('window.auth no fue creado por web-components.js');
+                    }
+                }, 100);
+            });
+        }
+        
+        // Función de debug
+        window.debugAuth = function() {
+            const auth = window.auth || window.authManager;
+            if (!auth) {
+                console.error('Sistema de autenticación no disponible');
+                return;
+            }
+            
+            console.log('=== Debug Auth ===');
+            console.log('window.auth:', window.auth);
+            console.log('window.authManager:', window.authManager);
+            console.log('Son el mismo objeto:', window.auth === window.authManager);
+            console.log('Usuario:', auth.getCurrentUser());
+            console.log('Rol:', auth.getUserRole());
+            console.log('Permisos:', auth.getUserPermissions());
+            console.log('Es Admin:', auth.isAdmin());
+            
+            const permisos = auth.getUserPermissions();
+            if (permisos && permisos.length > 0) {
+                console.log('Lista de permisos:');
+                permisos.forEach(p => console.log(`  - ${p.nombre_permiso}`));
+            }
+        };
+    </script>
+    <script src="../../js/web-components.js"></script>
+    <script src="../../js/interactions.js"></script>
+    <script src="../../js/report_history_table.js"></script>
+</body>
+
+</html>

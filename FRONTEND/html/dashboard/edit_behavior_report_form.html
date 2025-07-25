@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CSS-->
+    <link rel="stylesheet" href="../../css/dashboard/report_form.css">
+    <link rel="stylesheet" href="../../css/dashboard/dashboard-base.css">
+
+    <!--Favicon-->
+    <link rel="icon" href="../../src/logo.svg" type="image/x-icon">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <title>Reporte conductual - Hugin & Munin</title>
+</head>
+
+<body class="page-reports">
+    <hm-header></hm-header>
+
+    <hm-aside></hm-aside>
+
+    <main>
+        <div class="main-content">
+            <header class="main-header">
+                <div class="page-name">
+                    <nav class="breadcrumb-nav">
+                        <a href="behavior_report_form.html" class="animals">Conductual</a>
+                        <span><i class="ti ti-chevron-right"></i></span>
+                        <a href="">Editar reporte conductual</a>
+                    </nav>
+                    <h1>Editar reporte conductual</h1>
+                </div>
+            </header>
+
+            <div class="search-container">
+                <div class="search">
+                    <label for="search"><i class="ti ti-search"></i></label>
+                    <input type="text" class="search-input" id="search" placeholder="Buscar por número de inventario PLXXX, MXXX">
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form>
+                    <div class="report">
+                        <label for="asunto">Asunto:</label>
+                        <input type="text" class="asunto" id="asunto" name="asunto" placeholder="Asunto del reporte..." required>
+                    </div>
+                    <div class="report">
+                        <label for="contenido">Contenido:</label>
+                        <textarea id="contenido" name="contenido" rows="4" placeholder="Contenido del reporte..." required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-submit" id="submitBtn">
+                            Generar reporte
+                        </button>
+                        <a href="javascript:history.back()" class="btn-reset">
+                            Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+
+    <!--JS-->
+    <script src="../../js/api-base.js"></script>
+    <script src="../../js/auth-manager.js"></script>
+    <script src="../../js/auth-helper.js"></script>
+    <script src="../../js/web-components.js"></script>
+    <script src="../../js/interactions.js"></script>
+    <script src="../../js/edit_report_forms.js"></script>
+</body>
+
+</html>

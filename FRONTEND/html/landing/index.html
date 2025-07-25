@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../../css/landing/landing.css">
+    <link rel="stylesheet" href="../../css/landing/landing-navbar.css">
+
+    <!--Favicon-->
+    <link rel="icon" href="../../src/logo.svg" type="image/x-icon">
+
+    <!--Fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Hugin & Munin</title>
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Freckle+Face&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header id="inicio">
+        <div class="header-content">
+            <div class="menu-btn">
+                <button type="button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+            <div class="logo">
+                <a href="index.html" class="logo"><img src="../../src/logo.svg" alt="hugin&munin"></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#what-is">Hugin & Munin</a></li>
+                    <li><a href="#function">Función</a></li>
+                    <li><a href="#our-team">Nuestro equipo</a></li>
+                </ul>
+            </nav>
+            <div class="login-btn">
+                <a href="login.html">Iniciar sesión</a>
+            </div>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero__text">
+            <h1>
+                <span>Hugin</span>
+                <span>&</span>
+                <span>Munin</span>
+            </h1>
+            <p>Conservamos fauna y bosque, sin hojas impresas.</p>
+            <a href="#what-is" class="btn-cta">Saber más</a>
+        </div>
+        <picture>
+            <source srcset="../../src/hero-mobile.webp" media="(max-width: 1024px)">
+            <img src="../../src/hero-img.webp" alt="">
+        </picture>
+    </section>
+    <section class="what-is" id="what-is">
+        <div class="what-is__text text">
+            <h2>
+                <span>¿QUÉ ES</span>
+                <span class="italic-green">HUGIN & MUNIN?</span>
+            </h2>
+            <p>
+                Hugin & Munin es una aplicación web diseñada para facilitar la gestión organizada y eficiente de
+                animales en zoológicos.
+            </p>
+            <p>
+                Su interfaz moderna y accesible permite <b>registrar</b>, <b>visualizar</b> y <b>administrar</b>
+                información relevante de forma centralizada,
+                reduciendo el uso de papel y promoviendo una gestión más sostenible y profesional.
+            </p>
+        </div>
+        <div class="what-is__img img">
+            <img src="../../src/what-is-img0.webp" alt="">
+            <img src="../../src/what-is-img1.webp" alt="">
+        </div>
+    </section>
+    <section class="function" id="function">
+        <div class="function__text text">
+            <h2>
+                <span>¿CUÁL ES SU</span>
+                <span class="italic-underline">FUNCIÓN?</span>
+            </h2>
+            <p>
+                Permitir registrar, organizar y consultar información clave de manera segura y eficiente,
+                <b>sustituyendo los métodos
+                    tradicionales</b> por una solución adaptable a diferentes necesidades operativas.
+            </p>
+            <p>
+                Contribuir a mejorar los procesos internos y la toma de decisiones mediante un manejo más estructurado y
+                accesible de los
+                datos.
+            </p>
+        </div>
+        <div class="function__img img">
+            <img src="../../src/function-img.webp" alt="">
+            <img src="../../src/function-img1.webp" alt="">
+            <img src="../../src/function-img2.webp" alt="">
+        </div>
+    </section>
+    <section class="our-team" id="our-team">
+        <div class="our-team__text">
+            <h2>NUESTRO EQUIPO</h2>
+        </div>
+        <div class="our-team__img">
+            <img src="../../src/our-team.webp" alt="">
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-content__text">
+                <h3>Hugin & Munin</h3>
+                <p>Del papel al píxel</p>
+            </div>
+            <div class="footer-content__socials">
+                <ul>
+                    <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fa-brands fa-x-twitter"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-content__copyright">
+                <p>&copy; Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuBtn = document.querySelector('.menu-btn button');
+            const nav = document.querySelector('.nav');
+
+            menuBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                nav.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (event) => {
+                const isClickInsideNav = nav.contains(event.target);
+                const isClickOnMenuBtn = menuBtn.contains(event.target);
+
+                if (!isClickInsideNav && !isClickOnMenuBtn) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
